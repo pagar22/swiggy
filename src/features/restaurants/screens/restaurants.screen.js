@@ -3,8 +3,19 @@ import { useState } from 'react/cjs/react.development';
 import { Text, View, SafeAreaView, Platform, StatusBar } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import { RestaurantInfo } from '../components/restaurant-card.component';
+import styled from 'styled-components/native';
 
 const isAndroid = Platform.OS === 'android';
+const TopView = styled.View`
+      backgroundColor: purple;
+      padding: 16px;
+`;
+
+const FullSafeArea = styled.SafeAreaView`
+      flex: 1;
+      flexDirection: column;
+      ${StatusBar.currentHeight && `marginTop: ${StatusBar.currentHeight}px`};
+`;
 
 export const RestaurantScreen = () => {
 
@@ -12,22 +23,14 @@ export const RestaurantScreen = () => {
 
   return (
     <>
-      <SafeAreaView style={{
-        flex: '1',
-        flexDirection: 'column',
-        marginTop: isAndroid ? StatusBar.currentHeight : 0,
-
-      }}>
-        <View style={{
-          backgroundColor: 'purple',
-          padding: 16,
-        }}>
+      <FullSafeArea>
+        <TopView>
           <Searchbar
             placeholder='Restaurants'
             onChangeText={(query) => { setSearchQuery(query); console.log(searchQuery) }}
             value={searchQuery}
           />
-        </View>
+        </TopView>
         <View style={{
           backgroundColor: 'lightblue',
           padding: 16,
@@ -35,7 +38,7 @@ export const RestaurantScreen = () => {
         }}>
           <RestaurantInfo />
         </View>
-      </SafeAreaView >
+      </FullSafeArea >
     </>
   )
 }
