@@ -5,7 +5,6 @@ import { Searchbar } from 'react-native-paper';
 import { RestaurantInfo } from '../components/restaurant-card.component';
 import styled from 'styled-components/native';
 
-const isAndroid = Platform.OS === 'android';
 const TopView = styled.View`
       backgroundColor: purple;
       padding: 16px;

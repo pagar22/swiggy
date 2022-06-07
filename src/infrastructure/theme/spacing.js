@@ -1,4 +1,4 @@
-export const lineHeight = {
+export const lineHeights = {
     title: '28px',
     copy: '20px',
 };
@@ -10,5 +10,5 @@ export const space = {
     m: '16px',
     l: '32px',
     xl: '64px',
-}
+};
 
