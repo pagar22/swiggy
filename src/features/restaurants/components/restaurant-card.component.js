@@ -5,26 +5,38 @@ import styled from 'styled-components/native';
 
 const RestaurantCard = styled(Card)`
         margin: ${(props) => props.theme.space.s};
+        borderRadius: ${(props) => props.theme.sizes.xs};
         backgroundColor: ${(props) => props.theme.colors.bg.light};
     `;
 
 const CardCover = styled(Card.Cover)`
         padding: ${(props) => props.theme.space.m};
-        backgroundColor: ${(props) => props.theme.colors.bg.light};    `;
+        backgroundColor: ${(props) => props.theme.colors.bg.light};
+`;
 
-const CardText = styled.Text`
-        padding: ${(props) => props.theme.space.m};
+const RestaurantInfo = styled.View`
+        padding: ${(props) => props.theme.space.m}; 
         color: ${(props) => props.theme.colors.ui.primary};
+`;
+
+const Name = styled.Text`
+        fontFamily: ${(props) => props.theme.fonts.heading};
+        fontSize: ${(props) => props.theme.fontSizes.body};
     `;
 
-export const RestaurantInfo = ({ restaurant = {} }) => {
+const Address = styled.Text`
+        fontFamily: ${(props) => props.theme.fonts.body};
+        fontSize: ${(props) => props.theme.fontSizes.caption};
+`;
+
+export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
     const {
         name = 'Flour Works',
         photos = [
             'http://www.theflourworks.com/wp-content/uploads/2022/01/tfw02.jpg',
         ],
-        address = 'Kreuzburg',
+        address = 'Kalyani Nagar',
         rating = 4,
     } = restaurant;
 
@@ -32,9 +44,10 @@ export const RestaurantInfo = ({ restaurant = {} }) => {
         <>
             <RestaurantCard>
                 <CardCover source={{ uri: photos[0] }} />
-                <CardText>
-                    {name}
-                </CardText>
+                <RestaurantInfo>
+                    <Name>{name}</Name>
+                    <Address>{address}</Address>
+                </RestaurantInfo>
             </RestaurantCard>
         </>
     );

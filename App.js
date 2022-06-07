@@ -5,7 +5,15 @@ import { RestaurantScreen } from './src/features/restaurants/screens/restaurants
 import { ThemeProvider } from 'styled-components/native';
 import { theme } from './src/infrastructure/theme'
 
+import { useFonts as useOswald, Oswald_400Regular, } from '@expo-google-fonts/oswald';
+import { useFonts as useLato, Lato_400Regular, Lato_700Bold, } from '@expo-google-fonts/lato';
+
 export default function App() {
+
+  const [loadOswald] = useOswald({ Oswald_400Regular, });
+  const [loadLato] = useLato({ Lato_400Regular, Lato_700Bold, });
+
+  if (!loadOswald || !loadLato) return null;
 
   return (
     <>

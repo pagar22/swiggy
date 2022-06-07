@@ -2,7 +2,7 @@ import { React } from 'react';
 import { useState } from 'react/cjs/react.development';
 import { Text, View, SafeAreaView, Platform, StatusBar } from 'react-native';
 import { Searchbar } from 'react-native-paper';
-import { RestaurantInfo } from '../components/restaurant-card.component';
+import { RestaurantInfoCard } from '../components/restaurant-card.component';
 import styled from 'styled-components/native';
 
 const FullSafeArea = styled.SafeAreaView`
@@ -20,8 +20,6 @@ const ListView = styled.View`
 `;
 export const RestaurantScreen = () => {
 
-  const [searchQuery, setSearchQuery] = useState('');
-
   return (
     <>
       <FullSafeArea>
@@ -29,7 +27,7 @@ export const RestaurantScreen = () => {
           <Searchbar placeholder='Restaurants' />
         </SearchContainer>
         <ListView>
-          <RestaurantInfo />
+          <RestaurantInfoCard />
         </ListView>
       </FullSafeArea >
     </>
