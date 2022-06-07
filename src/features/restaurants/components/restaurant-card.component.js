@@ -4,19 +4,17 @@ import { Card, Paragraph } from 'react-native-paper';
 import styled from 'styled-components/native';
 
 const RestaurantCard = styled(Card)`
-        borderRadius: ${(props) => props.theme.sizes.xs};
-        shadowColor: ${(props) => props.theme.colors.bg.light};
-        padding: ${(props) => props.theme.sizes.xs};
+        margin: ${(props) => props.theme.space.s};
+        backgroundColor: ${(props) => props.theme.colors.bg.light};
     `;
 
 const CardCover = styled(Card.Cover)`
-        margin: ${(props) => props.theme.sizes.xs};
-        backgroundColor: ${(props) => props.theme.colors.bg.white};    `;
+        padding: ${(props) => props.theme.space.m};
+        backgroundColor: ${(props) => props.theme.colors.bg.light};    `;
 
 const CardText = styled.Text`
-        padding: 12px;
-        fontSize: ${(props) => props.theme.fontSizes.body}
-        color: ${(props) => props.theme.colors.text.primary};
+        padding: ${(props) => props.theme.space.m};
+        color: ${(props) => props.theme.colors.ui.primary};
     `;
 
 export const RestaurantInfo = () => {

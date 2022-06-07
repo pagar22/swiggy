@@ -5,21 +5,18 @@ import { Searchbar } from 'react-native-paper';
 import { RestaurantInfo } from '../components/restaurant-card.component';
 import styled from 'styled-components/native';
 
-const TopView = styled.View`
-    backgroundColor: purple;
-    padding: 16px;
-`;
-
 const FullSafeArea = styled.SafeAreaView`
     flex: 1;
-    flexDirection: column;
     ${StatusBar.currentHeight && `marginTop: ${StatusBar.currentHeight}px`};
 `;
 
+const SearchContainer = styled.View`
+    padding: ${(props) => props.theme.space.m};
+
+`;
+
 const ListView = styled.View`
-    backgroundColor: ${(props) => props.theme.colors.brand.primary};
-    padding: ${(props) => props.theme.sizes.s};
-    flex: 1;
+    padding: ${(props) => props.theme.space.m};
 `;
 export const RestaurantScreen = () => {
 
@@ -28,13 +25,9 @@ export const RestaurantScreen = () => {
   return (
     <>
       <FullSafeArea>
-        <TopView>
-          <Searchbar
-            placeholder='Restaurants'
-            onChangeText={(query) => { setSearchQuery(query); console.log(searchQuery) }}
-            value={searchQuery}
-          />
-        </TopView>
+        <SearchContainer>
+          <Searchbar placeholder='Restaurants' />
+        </SearchContainer>
         <ListView>
           <RestaurantInfo />
         </ListView>
