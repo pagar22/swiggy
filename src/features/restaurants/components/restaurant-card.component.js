@@ -17,14 +17,23 @@ const CardText = styled.Text`
         color: ${(props) => props.theme.colors.ui.primary};
     `;
 
-export const RestaurantInfo = () => {
+export const RestaurantInfo = ({ restaurant = {} }) => {
+
+    const {
+        name = 'Flour Works',
+        photos = [
+            'http://www.theflourworks.com/wp-content/uploads/2022/01/tfw02.jpg',
+        ],
+        address = 'Kreuzburg',
+        rating = 4,
+    } = restaurant;
 
     return (
         <>
             <RestaurantCard>
-                <CardCover source={require('../../../../assets/tfw02.jpeg')} />
+                <CardCover source={{ uri: photos[0] }} />
                 <CardText>
-                    Flour Works
+                    {name}
                 </CardText>
             </RestaurantCard>
         </>
