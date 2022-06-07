@@ -14,8 +14,8 @@ export const colors = {
         success: "#138000",
     },
     bg: {
-        primary: "#FFFFFF",
-        secondary: "#F1F1F1",
+        light: "#FFFFFF",
+        dark: "#0F0F0F",
     },
     text: {
         primary: "#262626",

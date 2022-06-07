@@ -6,16 +6,21 @@ import { RestaurantInfo } from '../components/restaurant-card.component';
 import styled from 'styled-components/native';
 
 const TopView = styled.View`
-      backgroundColor: purple;
-      padding: 16px;
+    backgroundColor: purple;
+    padding: 16px;
 `;
 
 const FullSafeArea = styled.SafeAreaView`
-      flex: 1;
-      flexDirection: column;
-      ${StatusBar.currentHeight && `marginTop: ${StatusBar.currentHeight}px`};
+    flex: 1;
+    flexDirection: column;
+    ${StatusBar.currentHeight && `marginTop: ${StatusBar.currentHeight}px`};
 `;
 
+const ListView = styled.View`
+    backgroundColor: ${(props) => props.theme.colors.brand.primary};
+    padding: ${(props) => props.theme.sizes.s};
+    flex: 1;
+`;
 export const RestaurantScreen = () => {
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -30,13 +35,9 @@ export const RestaurantScreen = () => {
             value={searchQuery}
           />
         </TopView>
-        <View style={{
-          backgroundColor: 'lightblue',
-          padding: 16,
-          flex: 1,
-        }}>
+        <ListView>
           <RestaurantInfo />
-        </View>
+        </ListView>
       </FullSafeArea >
     </>
   )
